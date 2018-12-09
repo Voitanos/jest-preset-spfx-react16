@@ -1,19 +1,19 @@
-# jest-preset-spfx-react15
+# jest-preset-spfx-react16
 
-A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview) (SPFx) projects that leverage React v15. React v15 is used by SPFx projects created with the [SPFx Yeoman generator](https://www.npmjs.com/@microsoft/generator-sharepoint) v1.6.0 or earlier. It includes the popular [Enzyme](https://airbnb.io/enzyme/) React rendering library from Airbnb
+A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview) (SPFx) projects that leverage React v16. React v16 is used by SPFx projects created with the [SPFx Yeoman generator](https://www.npmjs.com/@microsoft/generator-sharepoint) v1.7.0 or later. It includes the popular [Enzyme](https://airbnb.io/enzyme/) React rendering library from Airbnb
 
-> See the related packages [jest-preset-spfx](https://www.npmjs.com/package/@voitanos/jest-preset-spfx) for SPFx projects without React & [jest-preset-spfx-react16](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react16) if you are leveraging React v16.
+> See the related packages [jest-preset-spfx](https://www.npmjs.com/package/@voitanos/jest-preset-spfx) for SPFx projects without React & [jest-preset-spfx-react15](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react15) if you are leveraging React v15.
 
 ## Installation
 
 Install Jest & this preset using your package manager of choice:
 
 ```shell
-npm install jest @voitanos/jest-preset-spfx-react15 --save-dev
+npm install jest @voitanos/jest-preset-spfx-react16 --save-dev
 ```
 
 This will install `@types/enzyme-adapter-react-15`, `@types/enzyme-to-json`, `@types/jest`, `@types/react-test-renderer`, `enzyme`, `enzyme-adapter-react-15`, `enzyme-to-json`, `identity-obj-proxy`, `raf`, `react-test-renderer` & `ts-jest`
- as dependencies in your project. The specific versions needed for React v15 are used
+ as dependencies in your project. The specific versions needed for React v16 are used
 
 The postinstall script will verify you have a `./config/jest.config.json` file and update your `package.json` scripts with two scripts for running Jest tests with this configuration: `test` & `test:watch`.
 
@@ -27,7 +27,7 @@ To validate a successful install, do one of the following two things:
 
 ### Option 1: Add example tests
 
-1. Copy the folder **examples** from the installed package (*also found [here in the source repo](https://github.com/Voitanos/jest-preset-spfx-react15/tree/master/examples)*) into the project's **src** folder.
+1. Copy the folder **examples** from the installed package (*also found [here in the source repo](https://github.com/Voitanos/jest-preset-spfx-react16/tree/master/examples)*) into the project's **src** folder.
 1. Execute Jest to run the tests:
 
     ```shell
@@ -59,7 +59,7 @@ To validate a successful install, do one of the following two things:
 
 ## How it works
 
-This package contains a [base Jest configuration](https://github.com/Voitanos/jest-preset-spfx-react15/blob/master/jest-preset.json) that your project will inherit. It does this by using the `preset` property in the `jest.config.json` file.
+This package contains a [base Jest configuration](https://github.com/Voitanos/jest-preset-spfx-react16/blob/master/jest-preset.json) that your project will inherit. It does this by using the `preset` property in the `jest.config.json` file.
 
 ## References
 
@@ -88,7 +88,7 @@ The following preset is used for SPFx projects:
   },
   "setupFiles": [
     "raf/polyfill",
-    "@voitanos/jest-preset-spfx-react15/jest.enzyme.js"
+    "@voitanos/jest-preset-spfx-react16/jest.enzyme.js"
   ],
   "snapshotSerializers": [
     "enzyme-to-json/serializer"
