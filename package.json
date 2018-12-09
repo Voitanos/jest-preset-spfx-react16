@@ -1,0 +1,58 @@
+{
+  "name": "@voitanos/jest-preset-spfx-react16",
+  "description": "Jest preset configuration for SharePoint Framework projects that leverage React v16 (SPFx >=1.7.0).",
+  "version": "0.1.0",
+  "license": "MIT",
+  "dependencies": {
+    "@types/enzyme-adapter-react-16": "1.0.3",
+    "@types/enzyme-to-json": "1.5.2",
+    "@types/jest": "^23.3.10",
+    "@types/react-test-renderer": "16.0.3",
+    "enzyme": "3.4.1",
+    "enzyme-adapter-react-16": "1.7.0",
+    "enzyme-to-json": "3.3.4",
+    "identity-obj-proxy": "^3.0.0",
+    "raf": "3.4.0",
+    "react-test-renderer": "16.6.3",
+    "ts-jest": "23.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.12",
+    "typescript": "2.4.2"
+  },
+  "peerDependencies": {
+    "jest": "^23.6.0"
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "postinstall": "node postinstall/index.js"
+  },
+  "keywords": [
+    "enzyme",
+    "jest",
+    "office 365",
+    "office365",
+    "react",
+    "sharepoint framework",
+    "sharepoint",
+    "spfx",
+    "test",
+    "tools"
+  ],
+  "homepage": "https://github.com/Voitanos/jest-preset-spfx-react16",
+  "bugs": {
+    "url": "https://github.com/Voitanos/jest-preset-spfx-react16/issues"
+  },
+  "issues": "https://github.com/Voitanos/jest-preset-spfx-react16/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Voitanos/jest-preset-spfx-react16"
+  },
+  "author": "Andrew Connell <andrew@voitanos.io>",
+  "maintainers": [
+    {
+      "name": "andrewconnell",
+      "email": "andrew@voitanos.io"
+    }
+  ]
+}

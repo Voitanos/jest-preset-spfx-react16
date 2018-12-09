@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "lib": ["esnext"],
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "types": ["node"]
+  },
+  "include": [
+    "postinstall/*.ts"
+  ],
+  "exclude": [ "node_modules" ]
+}
