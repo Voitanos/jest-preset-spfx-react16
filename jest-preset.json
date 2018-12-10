@@ -1,4 +1,11 @@
 {
+  "collectCoverage": true,
+  "coverageDirectory": "<rootDir>/../temp/test",
+  "coverageReporters": [
+    "json",
+    "lcov",
+    "text-summary"
+  ],
   "moduleFileExtensions": [
     "ts", 
     "tsx", 
