@@ -14,7 +14,7 @@
   ],
   "moduleNameMapper": {
     "\\.(css|scss)$": "identity-obj-proxy",
-    "^resx-strings/en-us.json": "<rootDir>/node_modules/@microsoft/sp-core-library/lib/resx-strings/en-us.json"
+    "^resx-strings/en-us.json": "<rootDir>/../node_modules/@microsoft/sp-core-library/lib/resx-strings/en-us.json"
   },
   "setupFiles": [
     "raf/polyfill",

@@ -1,5 +1,7 @@
 # jest-preset-spfx-react16
 
+[![npm version](https://badge.fury.io/js/%40voitanos%2Fjest-preset-spfx-react16.png)](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react16)
+
 A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview) (SPFx) projects that leverage React v16. React v16 is used by SPFx projects created with the [SPFx Yeoman generator](https://www.npmjs.com/@microsoft/generator-sharepoint) v1.7.0 or later. It includes the popular [Enzyme](https://airbnb.io/enzyme/) React rendering library from Airbnb
 
 > See the related packages [jest-preset-spfx](https://www.npmjs.com/package/@voitanos/jest-preset-spfx) for SPFx projects without React & [jest-preset-spfx-react15](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react15) if you are leveraging React v15.
