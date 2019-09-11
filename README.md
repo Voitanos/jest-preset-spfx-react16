@@ -14,7 +14,7 @@ Install Jest & this preset using your package manager of choice:
 npm install jest @voitanos/jest-preset-spfx-react16 --save-dev
 ```
 
-This will install `@types/enzyme-adapter-react-15`, `@types/enzyme-to-json`, `@types/jest`, `@types/react-test-renderer`, `enzyme`, `enzyme-adapter-react-15`, `enzyme-to-json`, `identity-obj-proxy`, `raf`, `react-test-renderer` & `ts-jest`
+This will install `@types/enzyme-adapter-react-16`, `@types/enzyme-to-json`, `@types/jest`, `@types/react-test-renderer`, `enzyme`, `enzyme-adapter-react-16`, `enzyme-to-json`, `identity-obj-proxy`, `raf`, `react-test-renderer` & `ts-jest`
  as dependencies in your project. The specific versions needed for React v16 are used
 
 The postinstall script will verify you have a `./config/jest.config.json` file and update your `package.json` scripts with two scripts for running Jest tests with this configuration: `test` & `test:watch`.
