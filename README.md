@@ -118,7 +118,7 @@ Explanation of select configuration properties above:
 - **moduleNameMapper**:
   - when Jest sees a request for a CSS/SCSS file in the source files, it effectively ignores it using the `identity-obj-proxy` package
   - when jest sees a request for `en-us.json`, it is provided a helper path to find the file
-- **setupFules**:
+- **setupFiles**:
   - installs the **requestAnimationFrames** polyfill needed for headless browser testing
   - configures Enzyme to use the React v15 adapter
 - **testMatch**: all tests found either in a special `__tests__` folder or within the `src` folder with the following names will be found:
