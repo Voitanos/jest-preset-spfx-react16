@@ -7,7 +7,8 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "allowJs": true,
-    "types": ["node"]
+    "types": ["node"],
+    "esModuleInterop": true
   },
   "include": [
     "postinstall/*.ts"

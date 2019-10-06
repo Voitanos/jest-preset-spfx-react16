@@ -7,7 +7,7 @@ export class Sample extends React.Component<ISampleProps, {}> {
 
     return (
       <div>
-        <span>Hello world:</span>
+        <span className="message">Hello world:</span>
         <ul>
           <li>one</li>
           <li>two</li>
