@@ -6,6 +6,11 @@
     "lcov",
     "text-summary"
   ],
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "node_modules/@voitanos/jest-preset-spfx-react16/tsconfig.json"
+    }
+  },
   "moduleFileExtensions": [
     "ts", 
     "tsx", 

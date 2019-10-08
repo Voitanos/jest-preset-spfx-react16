@@ -8,6 +8,7 @@
     "baseUrl": ".",
     "allowJs": true,
     "types": ["node"],
+    "jsx": "react",
     "esModuleInterop": true
   },
   "include": [
