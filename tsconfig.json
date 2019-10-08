@@ -8,8 +8,7 @@
     "baseUrl": ".",
     "allowJs": true,
     "types": ["node"],
-    "jsx": "react",
-    "esModuleInterop": true
+    "jsx": "react"
   },
   "include": [
     "postinstall/*.ts"
