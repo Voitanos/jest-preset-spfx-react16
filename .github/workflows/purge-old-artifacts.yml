@@ -1,0 +1,19 @@
+######################################################################
+# Weekly purge of github workflow artifacts from old runs.
+######################################################################
+name: Weekly GH actions artifacts purge
+
+on:
+  workflow_dispatch:
+  schedule:
+  # ... this schedule: 1a every monday (ET)
+    - cron: '0 1 * * 1'
+
+jobs:
+  delete-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kolpav/purge-artifacts-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          expire-in: 60days # Setting this to 0 will delete all artifacts

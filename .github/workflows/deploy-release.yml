@@ -1,0 +1,150 @@
+######################################################
+# Deploy a current new NPM package version
+#    (ie: NPM package publish) when a release is
+#    published
+######################################################
+name: Publish release (NPM package publish @latest)
+
+on:
+  workflow_dispatch:
+  release:
+    types:
+      - published
+
+env:
+  NODE_VERSION: '14.x'
+
+  # NPM_TOKEN: <org.secret>
+
+jobs:
+  ######################################################################
+  # build NPM package for pre-release
+  ######################################################################
+  build:
+    name: Build NPM package
+    # only run if in our repo
+    if: github.repository_owner == 'voitanos' && !github.event.release.prerelease
+    runs-on: ubuntu-latest
+    steps:
+      ######################################################################
+      # Checkout code
+      ######################################################################
+      - name: Checkout repo codebase
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+          clean: true
+          submodules: false
+
+      ######################################################################
+      # configure Node.js
+      ######################################################################
+      - name: Setup Node ${{ env.NODE_VERSION }} environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      ######################################################################
+      # restore cached dependencies
+      ######################################################################
+      - name: Restore cached dependencies
+        uses: actions/cache@v2
+        id: node_module_cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('package-lock.json') }}
+
+      ######################################################################
+      # install dependencies (if restore cached deps failed)
+      ######################################################################
+      - name: Install dependencies
+        if: steps.node_module_cache.outputs.cache-hit != 'true'
+        shell: bash
+        run: npm ci
+        env:
+          IS_BUILD: 1 # hack to keep package's postinstall script from running on builds
+
+      ######################################################################
+      # build package
+      ######################################################################
+      - name: Build package
+        shell: bash
+        run: npm run build --if-present
+
+      ######################################################################
+      # compress & upload built package as artifact
+      ######################################################################
+      - name: Compress built project
+        run: tar -cvf build.tar --exclude node_modules ./
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-${{ env.NODE_VERSION }}
+          path: build.tar
+
+  ######################################################################
+  # build NPM package for pre-release
+  ######################################################################
+  publish_to_npm:
+    name: Publish NPM package (@latest)
+    # only run if in our repo & if release = prerelease
+    if: github.repository_owner == 'voitanos'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      ######################################################################
+      # download & uncompress built package as artifact
+      ######################################################################
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-${{ env.NODE_VERSION }}
+      - name: Unpack build artifact
+        run: tar -xvf build.tar && rm build.tar
+
+      ######################################################################
+      # configure Node.js
+      ######################################################################
+      - name: Setup Node ${{ env.NODE_VERSION }} environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+
+      ######################################################################
+      # restore cached dependencies
+      ######################################################################
+      - name: Restore cached dependencies
+        uses: actions/cache@v2
+        id: node_module_cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('package-lock.json') }}
+
+      ######################################################################
+      # install dependencies (if restore cached deps failed)
+      ######################################################################
+      - name: Install dependencies
+        if: steps.node_module_cache.outputs.cache-hit != 'true'
+        shell: bash
+        run: npm ci
+        env:
+          IS_BUILD: 1 # hack to keep package's postinstall script from running on builds
+
+      ######################################################################
+      # publish NPM package as release
+      ######################################################################
+      - name: Publish release as NPM @latest
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      ######################################################################
+      # compress & upload publish output as artifact
+      ######################################################################
+      - name: Compress output
+        run: tar -cvf build.tar --exclude node_modules ./
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-${{ env.NODE_VERSION }}
+          path: build.tar
