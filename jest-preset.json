@@ -1,6 +1,12 @@
 {
   "collectCoverage": true,
   "coverageDirectory": "<rootDir>/../temp/test",
+  "collectCoverageFrom": [
+    "<rootDir>/**/*.{ts,tsx}",
+    "!<rootDir>/**/*.scss.*",
+    "!<rootDir>/**/webparts/**/*.ts",
+    "!<rootDir>/loc/**/*.*"
+  ],
   "coverageReporters": [
     "json",
     "lcov",
@@ -8,19 +14,32 @@
   ],
   "globals": {
     "ts-jest": {
+      "diagnostics": {
+        "ignoreCodes":  "TS151001"
+      },
       "tsConfig": "node_modules/@voitanos/jest-preset-spfx-react16/tsconfig.ts-jest.json"
     }
   },
   "moduleFileExtensions": [
-    "ts", 
-    "tsx", 
-    "js", 
+    "ts",
+    "tsx",
+    "js",
     "json"
   ],
   "moduleNameMapper": {
     "\\.(css|scss)$": "identity-obj-proxy",
-    "^resx-strings/en-us.json": "<rootDir>/../node_modules/@microsoft/sp-core-library/lib/resx-strings/en-us.json"
+    "^resx-strings/en-us.json": "<rootDir>/node_modules/@microsoft/sp-core-library/lib/resx-strings/en-us.json"
   },
+  "reporters": [
+    "default",
+    [
+      "jest-junit",
+      {
+        "outputDirectory": "temp/test",
+        "outputName": "junit.xml"
+      }
+    ]
+  ],
   "setupFiles": [
     "raf/polyfill",
     "@voitanos/jest-preset-spfx-react16/jest.enzyme.js"

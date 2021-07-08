@@ -1,8 +1,14 @@
+# exclude workflows
+.github/workflows
+
 # exclude all typescript files
 **/*.ts
-# except samples
+
+# include samples
 !examples/*.ts
-!examples/*.tsx
+
+# exclude utility script for builds
+./scripts/update-package-version.*
 
 # exclude package manager lock files
-shrinkwrap.yaml
+package-lock.json
