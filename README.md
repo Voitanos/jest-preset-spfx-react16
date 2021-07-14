@@ -1,6 +1,6 @@
 # jest-preset-spfx-react16
 
-[![npm @latest](https://img.shields.io/npm/v/@voitanos/jest-preset-spfx-react16/latest?style=flat-square)](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react16) [![npm @next](https://img.shields.io/npm/v/@voitanos/jest-preset-spfx-react16/next?style=flat-square)](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react16)
+[![npm @latest](https://img.shields.io/npm/v/@voitanos/jest-preset-spfx-react16/latest?style=flat-square)](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react16)
 
 [![Voitanos on Twitter](https://img.shields.io/badge/Twitter-%40voitanos-blue?style=flat-square)](https://www.twitterl.com/voitanos)
 
@@ -98,7 +98,7 @@ The Jest preset NPM package contains distribution tags that are used to alias sp
 Using the information above, install the specific Jest preset package:
 
 ```console
-npm install @voitanos/jest-preset-spfx-react16@1.2.2 --save-dev --save-exact
+npm install @voitanos/jest-preset-spfx-react16@2.9 --save-dev --save-exact
 ```
 
 > **NOTE**: Pay close attention to the console output as you'll likely have at least one additional step (*look for ACTION REQUIRED*). The console will also contain information about changes applied to your project to support tests.
